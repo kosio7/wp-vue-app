@@ -1,9 +1,18 @@
 let App = Vue.extend({});
 
-// TODO: This is for testing purposes only, refactor and change
-// as needed.
 let posts = Vue.extend({
-  template:"<h1>TEST</h1>"
+  template:'#posts-template',
+  data: function () {
+    return {
+      posts: ''
+    };
+  },
+  mounted: function () {
+    posts = this.$resource('/wordpress/wp-json/wp/v2/posts?per_page=15');
+    posts.get().then((response) => {
+      this.posts = response.body;
+    });  
+  }
 });
 
 let router = new VueRouter({
