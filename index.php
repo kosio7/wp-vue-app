@@ -1,17 +1,43 @@
 <?php get_header(); ?>
-  <div class="white-wrap">
+  <div class="wrapper">
     <div id="app">
       <router-view></router-view>
     </div>
   </div>
 
-  <template id='posts-template'>
+  <template id='posts-template'>    
     <div>
+      <v-toolbar>
+        <v-toolbar-side-icon></v-toolbar-side-icon>
+        <v-toolbar-title>Post Fetcher</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-toolbar-items class="hidden-sm-and-down">
+          <v-btn flat to="/">Posts</v-btn>
+          <v-btn flat to="/articles">Articles</v-btn>
+        </v-toolbar-items>
+      </v-toolbar>
       <div v-for='post in posts'>
-        {{ post.id }}
+        {{ moment(post.date).format('MMMM Do YYYY, h:mm:ss a') }}
         {{ post.title.rendered }}
-        {{ post.author }}
+        {{ post._embedded.author[0].name }}
       </div>
+    </div> 
+  </template>
+
+  <template id='articles-template'>
+    <div>
+    <v-toolbar>
+        <v-toolbar-side-icon></v-toolbar-side-icon>
+        <v-toolbar-title>Post Fetcher</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-toolbar-items class="hidden-sm-and-down">
+          <v-btn flat to="/">Posts</v-btn>
+          <v-btn flat to="/articles">Articles</v-btn>
+        </v-toolbar-items>
+    </v-toolbar>
+    <div v-for='article in articles'>
+        <div v-html="article.content.rendered"></div>
+    </div>
     </div> 
   </template>
 <?php get_footer(); ?>
