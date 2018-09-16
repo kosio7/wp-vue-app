@@ -51,9 +51,13 @@ let router = new VueRouter({
   ]
 });
 
-new Vue({
-  el: '#app',
-  router,
-  template: '',
-  components: { App }
+// We want to make sure that the scripts are executed 
+// after the element is loaded in the DOM. 
+window.addEventListener('load', function () {
+  new Vue({
+    el: '#app',
+    router,
+    template: '',
+    components: { App }
+  });
 });
