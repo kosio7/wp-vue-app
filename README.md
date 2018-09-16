@@ -2,9 +2,7 @@
 
 > Project made with VueJS and Vuetify using the WordPress REST API.
 
-This is a simple WordPress theme created with VueJS. The purpose of the theme is to fetch the latest 
-
-posts from the WP REST API in the page that it's loaded and display them along with their author and date published. In a separate page all of the articles are shown.
+This is a simple WordPress theme created with VueJS. The purpose of the theme is to fetch the latest posts from the WP REST API in the page that it's loaded and display them along with their author and date published. In a separate page all of the articles are shown.
 
 
 How to use:

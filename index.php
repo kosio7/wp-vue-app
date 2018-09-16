@@ -26,9 +26,7 @@
             <v-layout>              
               Article written by &nbsp
               <p class='author'>
-                {{ post._embedded.author[0].name }}
-                <!-- NOTE: Find a way to present background image for the post. -->
-                <!-- {{ post._embedded['wp:featuredmedia'][0] }} -->
+                {{ post._embedded.author[0].name }}              
               </p>
             </v-layout>
             <v-layout>          
@@ -38,8 +36,7 @@
           </v-container>
             </div>
           </div> 
-        </v-card>
-        
+        </v-card>        
   </template>
 
   <template id='articles-template'>
